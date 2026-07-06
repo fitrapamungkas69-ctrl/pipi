@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!!! 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --sage: #7C8E6A;
+      --sage-deep: #586349;
+      --cream: #FAF4E9;
+      --paper: #FFFDF8;
+      --terracotta: #C97A5E;
+      --gold: #C9A66B;
+      --ink: #2E2A22;
+      --ink-soft: #5C5648;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Work Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* texture */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(124, 142, 106, 0.07) 1px, transparent 0);
+      background-size: 18px 18px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Fraunces', serif;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6vh 6vw 8vh;
+      position: relative;
+    }
+
+    .hero .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 9vw, 6.2rem);
+      line-height: 0.98;
+      color: var(--ink);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--terracotta);
+      font-size: 1.05em;
+    }
+
+    .hero .sub {
+      margin-top: 22px;
+      max-width: 520px;
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .hero-photo {
+      margin-top: 42px;
+      width: min(78vw, 280px);
+      transform: rotate(-3deg);
+      background: var(--paper);
+      padding: 14px 14px 46px;
+      box-shadow: 0 18px 40px -12px rgba(46, 42, 34, 0.35);
+      border-radius: 2px;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      display: block;
+      border-radius: 1px;
+    }
+
+    .hero-photo .cap {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      text-align: center;
+      margin-top: 14px;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    .scroll-cue {
+      margin-top: 48px;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      opacity: 0.75;
+      animation: bob 2.4s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    /* ---------- INTRO NOTE ---------- */
+    .note-section {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 10vh 7vw 8vh;
+      text-align: center;
+    }
+
+    .note-section h2 {
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-style: italic;
+      color: var(--sage-deep);
+      margin-bottom: 24px;
+    }
+
+    .note-section p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--ink-soft);
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 36px auto;
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+
+    /* ---------- CORKBOARD GALLERY ---------- */
+    .board-section {
+      padding: 6vh 5vw 10vh;
+    }
+
+    .board-heading {
+      text-align: center;
+      margin-bottom: 6vh;
+    }
+
+    .board-heading .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .board-heading h2 {
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      color: var(--ink);
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 48px 28px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .polaroid {
+      perspective: 1400px;
+      cursor: pointer;
+    }
+
+    .polaroid-inner {
+      position: relative;
+      width: 100%;
+      transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .polaroid.flipped .polaroid-inner {
+      transform: rotateY(180deg);
+    }
+
+    .pol-face {
+      backface-visibility: hidden;
+      background: var(--paper);
+      padding: 14px 14px 16px;
+      box-shadow: 0 14px 28px -10px rgba(46, 42, 34, 0.3);
+      border-radius: 2px;
+    }
+
+    .pol-front {
+      transform: rotate(var(--tilt));
+    }
+
+    .pol-front img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 1px;
+    }
+
+    .pol-front .pol-tape {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      width: 54px;
+      height: 22px;
+      background: rgba(201, 166, 107, 0.55);
+      border: 1px solid rgba(201, 166, 107, 0.3);
+    }
+
+    .pol-front .pol-cap {
+      margin-top: 12px;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.92rem;
+      text-align: center;
+      color: var(--ink-soft);
+    }
+
+    .pol-back {
+      position: absolute;
+      inset: 0;
+      transform: rotate(var(--tilt)) rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 20px;
+      background: var(--sage);
+      background-image: linear-gradient(160deg, var(--sage) 0%, var(--sage-deep) 100%);
+    }
+
+    .pol-back p {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      color: var(--cream);
+      font-size: 0.98rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .pol-hint {
+      text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      opacity: 0.55;
+      margin-top: 10px;
+    }
+
+    /* ---------- LETTER ---------- */
+    .letter-section {
+      background: var(--sage-deep);
+      padding: 10vh 6vw;
+      display: flex;
+      justify-content: center;
+    }
+
+    .letter-card {
+      max-width: 640px;
+      background: var(--paper);
+      padding: 7vh 7vw;
+      border-radius: 3px;
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .letter-card .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .letter-card h2 {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-style: italic;
+      color: var(--ink);
+      margin-bottom: 30px;
+    }
+
+    .letter-card p {
+      font-size: 1.04rem;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      margin-bottom: 18px;
+    }
+
+    .signature {
+      margin-top: 30px;
+      text-align: right;
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--terracotta);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 6vh 6vw;
+      color: var(--sage-deep);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    footer .heart {
+      color: var(--terracotta);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--terracotta);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <audio id="bgm" src="happybirthday.mp3" loop></audio>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="eyebrow">^^^^^^^^^^</div>
+      <h1>Selamat Ulang Tahun<span>💖💗 Pipi 🥰💞</span></h1>
+      <div class="hero-photo">
+        <img
+          src="https://c.tenor.com/NPx6ADi9HngAAAAd/tenor.gif" 
+          alt="xixi">
+        <div class="cap">Cihuyyy 22 nih</div>
+      </div>
+      <div class="scroll-cue">ke bawah yuk ↓</div>
+    </section>
+
+    <section class="letter-section">
+      <div class="letter-card">
+        <h2>Selamat Ulang Tahun <br>Firdha Yuanda Kusdamayani</h2>
+        <p>Happy birthday yang ke-22 buat pacar aku/mark/haechan (pilih aja yang mana terserah) yang paling cantikkkkkk, emaknya Bendut! <br><br>
+        Semoga di umur yang baru ini, rezeki kamu makin mengalir deras biar bisa beli tiket konser NCT (kalau ada itu juga) & biar Ben bisa mukbang salmon, sehat selalu sayanggg, dan semoga semua impianmu tercapai. Terima kasih sudah jadi orang yang luar biasa di hidupku.</p>
+        <div class="signature">— with love, fitra</div>
+        <div class="divider"></div>
+        <p>Liat foto foto yuk. 🤍</p>
+    </section>
+
+    <!-- CORKBOARD GALLERY -->
+    <section class="board-section">
+      <div class="board-heading">
+        <div class="eyebrow">Papan kenangan</div>
+        <h2>Sedikit dari banyak cerita kita</h2>
+      </div>
+      <div class="board" id="board"></div>
+    </section>
+
+    <footer>
+      made with <span class="heart">♥</span> for Pipi
+    </footer>
+
+  </div>
+
+  <script>
+    const bgm = document.getElementById('bgm');
+    bgm.volume = 0.1;
+    bgm.play().catch(() => {
+    document.body.addEventListener('click', () => bgm.play(), { once: true });
+    });
+  
+    const photos = [
+      { src: "foto/1.jpg", cap: "Blok M", note: "" },
+      { src: "foto/2.jpg", cap: "Arkive Kelor", note: "" },
+      { src: "foto/3.jpg", cap: "et al.", note: "" },
+      { src: "foto/4.jpg", cap: "dimitree", note: "" },
+      { src: "foto/5.jpg", cap: "UD Djaya", note: "" },
+      { src: "foto/6.jpg", cap: "Uncle jo", note: "" },
+      { src: "foto/7.jpg", cap: "Kolato", note: "" },
+      { src: "foto/8.jpg", cap: "ceritalain", note: "" }
+    ];
+
+    const board = document.getElementById('board');
+    const tilts = [-3, 2, -2, 3, -4, 1.5, -1, 2.5];
+
+    photos.forEach((p, i) => {
+      const card = document.createElement('div');
+      card.className = 'polaroid';
+      card.style.setProperty('--tilt', tilts[i % tilts.length] + 'deg');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', 'Lihat catatan di balik foto: ' + p.cap);
+      card.innerHTML = `
+    <div class="polaroid-inner">
+      <div class="pol-face pol-front">
+        <div class="pol-tape"></div>
+        <img src="${p.src}" alt="${p.cap}" loading="lazy">
+        <div class="pol-cap">${p.cap}</div>
+      </div>
+      <div class="pol-face pol-back">
+        <p>${p.note}</p>
+      </div>
+    </div>
+    <div class="pol-hint"></div>
+  `;
+      const toggle = () => card.classList.toggle('flipped');
+      card.addEventListener('click', toggle);
+      card.addEventListener('keypress', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+      board.appendChild(card);
+    });
+  </script>
+</body>
+
+</html>
